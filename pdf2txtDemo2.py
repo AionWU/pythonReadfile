@@ -1,7 +1,7 @@
 import pdfplumber
 
 PDF_PATH = './data/pdf/'
-FILE_NAME = '资产管理计划资产管理合同-样例'
+FILE_NAME = '文件名'
 
 path = PDF_PATH + FILE_NAME + '.pdf'
 pdf = pdfplumber.open(path)
