@@ -1,8 +1,8 @@
 from docx import Document
 from docx.shared import Inches
 
-DOC_PATH = './data/doc/'
-FILE_NAME = '文件名'
+DOC_PATH = './data/docx/'
+FILE_NAME = '资产管理计划资产管理合同-样例'
 document = Document(DOC_PATH + FILE_NAME + '.docx')
 f = open(DOC_PATH + FILE_NAME + '.txt', 'w')
 i = 0
