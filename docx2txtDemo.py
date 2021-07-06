@@ -1,5 +1,4 @@
 from docx import Document
-from docx.shared import Inches
 
 DOC_PATH = './data/docx/'
 FILE_NAME = '资产管理计划资产管理合同-样例'
