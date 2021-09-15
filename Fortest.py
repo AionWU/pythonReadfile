@@ -61,4 +61,4 @@ for line in f:
 
 txtDateFrame = list2Dateframe(txt)
 print(txtDateFrame)
-txtDateFrame.to_csv('./temp.csv')
+txtDateFrame.to_csv('./data/temp.csv', index=False)  # 不保存序号
