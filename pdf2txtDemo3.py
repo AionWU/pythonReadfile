@@ -1,7 +1,7 @@
 import pdfplumber
 
 PDF_PATH = './data/pdf/'
-FILE_NAME = '天弘上海金交易型开放式证券投资基金基金合同'
+FILE_NAME = '1591144640909-dongfanghonghuobishichangjijinjijinhetong'
 END_FLAG = ['。', '；', ' ']
 
 path = PDF_PATH + FILE_NAME + '.pdf'

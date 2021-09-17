@@ -1,13 +1,9 @@
 import pdfplumber
 
 PDF_PATH = './data/pdf/'
-FILE_NAME = '天弘上海金交易型开放式证券投资基金基金合同'
-END_FLAG = ['。', '；', ' ']
+FILE_NAME = '招商招福宝货币市场基金基金合同'
 
 path = PDF_PATH + FILE_NAME + '.pdf'
-pdf = pdfplumber.open(path)
-
-f = open(PDF_PATH + FILE_NAME + 'new' + '.txt', 'w', encoding='utf-8')
 
 
 def wordlist_to_linelist(words_list, line_list, minx_list):
@@ -34,6 +30,7 @@ def wordlist_to_linelist(words_list, line_list, minx_list):
 
 
 def main():
+    pdf = pdfplumber.open(path)
     line_list, minx_list = [], []
     for page in pdf.pages:
         # 获取当前页面的全部文本信息，包括表格中的文字
@@ -41,19 +38,17 @@ def main():
 
         line_list, minx_list = wordlist_to_linelist(words_list, line_list, minx_list)
 
-    # for i in range(len(minx_list)):
-    #     print(minx_list[i], line_list[i])
-
-    l_x0 = minx_list[0]
-    l_line = line_list[0]
-    whole_minx = l_x0
-    text = l_line
+    whole_minx = minx_list[0]
+    text = line_list[0]
     for i in range(1, len(minx_list)):
-        if minx_list[i] <= whole_minx:
+        print(minx_list[i], whole_minx, line_list[i])
+        if 60 < minx_list[i] <= whole_minx or abs(whole_minx - minx_list[i]) <= 10:  # 有的突出边界，有的边界不标准
             whole_minx = minx_list[i]
             text += line_list[i]
         else:
             text += '\n' + line_list[i]
+
+    f = open(PDF_PATH + FILE_NAME + 'new' + '.txt', 'w', encoding='utf-8')
     f.write(text)
     f.close()
 
